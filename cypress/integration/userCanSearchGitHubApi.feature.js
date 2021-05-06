@@ -1,9 +1,9 @@
 describe('User can search Github API', () => {
-	beforeEach(() => {
+	before(() => {
     cy.server()
     cy.route({
       method: 'GET',
-      url: 'https://api.github.com/search/users/**',
+      url: 'https://api.github.com/search/users/',
       response: 'fixture:githubexampleresponse.json'
     })
     cy.visit('/')
