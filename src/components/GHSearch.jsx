@@ -4,11 +4,11 @@ import axios from 'axios'
 
 const GHSearch = () => {
 	const [usersData, setUserData] = useState([])
+  const [orgsData, setOrgsData] = useState([])
 
 	async function fetchData() {
 		await axios.get('https://api.github.com/search/users/').then((res) => {
 			let userInfo = res.data.items
-      debugger
 			setUserData(userInfo)
 		})
 	}
