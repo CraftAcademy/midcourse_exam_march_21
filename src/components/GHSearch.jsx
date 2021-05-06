@@ -19,9 +19,9 @@ const GHSearch = () => {
   let displayResults = searchResults.map((user) => {
     return (
       <>
-      <p>{user.login}</p>
-      <p>{user.id}</p>
-      <p>{user.html_url}</p>
+      <p>User login: {user.login}</p>
+      <p>User id: {user.id}</p>
+      <p>Link to Github: {user.html_url}</p>
       </>
     )    
   })
@@ -43,7 +43,7 @@ const GHSearch = () => {
         Search
       </Button>
       {
-        (displayResults.length > 0) && <div data-cy="results-display">{displayResults}</div>
+        (displayResults.length > 0) && <div data-cy="results-display">{JSON.stringify(searchResults)}</div>
       }      
     </>
   );
