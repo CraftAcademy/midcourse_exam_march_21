@@ -8,9 +8,13 @@ const GHSearch = () => {
 
 
   const searchHandler = async () => {
-    let response = await axios.get('https://api.github.com/search/users?q=sevader14')
+    let response = await axios.get(`https://api.github.com/search/users?q=${searchQuery}`)
     setSearchResults(response.data.items)
   };
+
+  const inputHandler = (event) => {
+    setSearchQuery(event.target.value)
+  }
 
   let displayResults = searchResults.map((user) => {
     return (
@@ -25,7 +29,7 @@ const GHSearch = () => {
   return (
     <>
       <Input
-      
+        onChange={(event) => inputHandler(event)}
         data-cy="user-search-input"
         type="text"
         name="search"
@@ -38,7 +42,9 @@ const GHSearch = () => {
       >
         Search
       </Button>
-      <div data-cy="results-display">{displayResults}</div>
+      {
+        (displayResults.length > 0) && <div data-cy="results-display">{displayResults}</div>
+      }      
     </>
   );
 };
