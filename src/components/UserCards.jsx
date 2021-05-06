@@ -1,7 +1,7 @@
 import React from 'react'
 import {Card, CardContent, Image, Button} from 'semantic-ui-react'
 
-const UserCards = ({user: {login, avatar_url, html_url}}) => {
+const UserCards = ({users: {login, avatar_url, html_url}}) => {
   return (
     <Card data-cy="user-card">
       <Image data-cy='user-img' src={avatar_url}/>
@@ -16,5 +16,6 @@ const UserCards = ({user: {login, avatar_url, html_url}}) => {
     </Card>
   )
 }
+
 
 export default UserCards
