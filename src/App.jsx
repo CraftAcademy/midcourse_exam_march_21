@@ -1,19 +1,19 @@
-import React from 'react'
-import Header from './components/Title'
-import GHSearch from './components/GHSearch'
-import { Container } from 'semantic-ui-react'
+import React from "react";
+import Header from "./components/Title";
+import GHSearch from "./components/GHSearch";
+import { Container } from "semantic-ui-react";
 
 const App = () => {
   return (
-    <Container>
+    <Container text>
       <section name="title">
         <Header />
       </section>
       <section name="main">
-        <GHSearch/>
+        <GHSearch />
       </section>
     </Container>
-  )
-}
+  );
+};
 
-export default App
+export default App;

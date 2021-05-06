@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import { Button, Input } from "semantic-ui-react";
+import { Button, Container, Header, Input } from "semantic-ui-react";
 import axios from "axios";
 
 const GHSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-
   const searchHandler = async () => {
-    let response = await axios.get(`https://api.github.com/search/users?q=${searchQuery}`)
-    setSearchResults(response.data.items)
+    let response = await axios.get(
+      `https://api.github.com/search/users?q=${searchQuery}`
+    );
+    setSearchResults(response.data.items);
   };
 
   const inputHandler = (event) => {
-    setSearchQuery(event.target.value)
-  }
+    setSearchQuery(event.target.value);
+  };
 
-  let displayResults = searchResults.map((user) => {
+  let displayResults = searchResults.map((user, i) => {
     return (
-      <>
-      <p>User login: {user.login}</p>
-      <p>User id: {user.id}</p>
-      <p>Link to Github: {user.html_url}</p>
-      </>
-    )    
-  })
+      <Container text>
+        <Header>User {i}:</Header>
+        <p>{JSON.stringify(user)}</p>
+      </Container>
+    );
+  });
 
   return (
     <>
@@ -42,9 +42,9 @@ const GHSearch = () => {
       >
         Search
       </Button>
-      {
-        (displayResults.length > 0) && <div data-cy="results-display">{JSON.stringify(searchResults)}</div>
-      }      
+      {displayResults.length > 0 && (
+        <div data-cy="results-display">{displayResults}</div>
+      )}
     </>
   );
 };
