@@ -1,5 +1,5 @@
 describe("Application main view", () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit("/");
   });
 
