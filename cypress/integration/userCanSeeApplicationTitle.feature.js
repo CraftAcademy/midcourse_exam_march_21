@@ -1,10 +1,11 @@
-describe('Application main view', () => {
+describe("Application main view", () => {
   beforeEach(() => {
-    cy.visit('/')
+    cy.visit("/");
   });
 
-  it('contains titel', () => {
-    cy.get("section[name='title']")
-      .should('contain', 'GitHub Search engine')
+  it("contains titel", () => {
+    cy.get("section[name='title']").should("contain", "GitHub Search engine");
+    cy.get("[data-cy='user-search-input']").should("be.visible");
+    cy.get("[data-cy='search-button']").should("be.visible");
   });
 });
