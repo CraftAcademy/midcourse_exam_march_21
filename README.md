@@ -1,3 +1,16 @@
+## TO DO LIST
+
+- Branch out, create a PR CHECKED
+- Figure out the API/documentation
+- Find a fixture
+- Write our tests
+- Look into implementation
+    - Control input value
+    - onClick that fetches data
+    - Showcase this data with .map
+- Sad path?
+
+
 ## Midcourse Exam Challenge - GitHub User Search
 
 You are challenged with creating a feature that allows the users to search the GitHub registry of users.
