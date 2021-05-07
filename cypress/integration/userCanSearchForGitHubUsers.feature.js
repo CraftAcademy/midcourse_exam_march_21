@@ -29,7 +29,7 @@ describe('Search', () => {
     });
   });
 
-  describe('with invalid query', () => {
+  describe.only('with invalid query', () => {
     beforeEach(() => {
       cy.visit('/')
       cy.get('[data-cy=query-field]').type('--------')

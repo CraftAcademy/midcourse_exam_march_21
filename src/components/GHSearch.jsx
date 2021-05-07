@@ -5,10 +5,13 @@ import axios from "axios";
 const GHSearch = () => {
   const [query, setQuery] = useState('')
   const [users, setUsers] = useState([])
+  const [message, setMessage] = useState('')
 
   const fetchGHUsers = async () => {
     const results = await axios.get(`https://api.github.com/search/users?q=${query}`)
-    setUsers(results.data.items)
+    results.data.items === 0 ?
+      setMessage('We could not find any users based on your query') :
+      setUsers(results.data.items)
   }
   //  'We could not find any users based on your query'
   const displayUsers = users.map(user => {
@@ -30,11 +33,8 @@ const GHSearch = () => {
         Search
         </Button>
       <div data-cy="query-results">
-        {
-          users.length > 0 ?
-            displayUsers :
-            <p data-cy="message">'We could not find any users based on your query'</p>
-        }
+        {displayUsers}
+        <p data-cy="message">{message}</p>
       </div>
     </>
   )
