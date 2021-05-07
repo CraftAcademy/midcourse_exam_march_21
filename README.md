@@ -1,6 +1,7 @@
 ## TO DO LIST
 
-- Branch out, create a PR
+- Branch out, create a PR CHECKED
+- Figure out the API/documentation
 - Find a fixture
 - Write our tests
 - Look into implementation

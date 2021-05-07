@@ -10,4 +10,5 @@ const GHSearch = () => {
   )
 }
 
+ // https://api.github.com/search/users?q=Lucas
 export default GHSearch
