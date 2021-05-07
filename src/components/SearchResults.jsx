@@ -9,7 +9,8 @@ const SearchResults = ({ searchResults }) => {
             <img data-cy='avatar' style={styles.img} src={user.avatar_url} alt={user.login} />
           </div>
           <div style={styles.info}>
-            <p style={{fontWeight: 'bold', fontSize: '20px'}} data-cy='username' >{user.login}</p>
+            <p style={{fontWeight: 'bold', fontSize: '20px'}} data-cy='username' >
+              {user.login}</p>
             <p><a data-cy='url' href={user.html_url}>Link to GitHub:</a> </p>
           </div>
         </div>
