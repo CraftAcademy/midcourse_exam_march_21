@@ -10,7 +10,7 @@ const GHSearch = () => {
     const results = await axios.get(`https://api.github.com/search/users?q=${query}`)
     setUsers(results.data.items)
   }
-
+  //  'We could not find any users based on your query'
   const displayUsers = users.map(user => {
     return (
       <div key={user.id} data-cy={`user-${user.id}`}>{user.login}</div>
@@ -30,7 +30,11 @@ const GHSearch = () => {
         Search
         </Button>
       <div data-cy="query-results">
-        {displayUsers}
+        {
+          users.length > 0 ?
+            displayUsers :
+            <p data-cy="message">'We could not find any users based on your query'</p>
+        }
       </div>
     </>
   )
