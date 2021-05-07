@@ -5,12 +5,11 @@ import SearchResults from './SearchResults'
 
 const GHSearch = () => {
   const [searchInput, setSearchInput] = useState()
-  const [seachResult, setSearchResult] = useState([])
+  const [searchResults, setSearchResults] = useState([])
 
   const search = async () => {
-
     let response = await axios.get(`https://api.github.com/search/users?q=${searchInput}`)
-    debugger
+    setSearchResults(response.data.items)
   }
 
   return (
@@ -28,7 +27,7 @@ const GHSearch = () => {
       >
         Search
       </Button>
-      <SearchResults />
+      <SearchResults searchResults={searchResults} />
     </>
   )
 }
